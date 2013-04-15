@@ -1,10 +1,5 @@
 title: The Tower of Doom
-<<<<<<< HEAD
 contributors: omarabed championmathias arenascf 
 type: game
 repo: ece2524git@ece2524.ece.vt.edu:omarabed/project
 description: A text-based RPG where the main goal is for the user to reach the top of a tower. The player advances up a tower and fights enemies along the way. Levels increase in difficulty and gameplay options change as levels increase. The player will be able to save their character and position and level up. And there will be autosave features/checkpoints so the user doesn't fall all the way back down when they lose. There will be varying enemies with each level. The player will have an inventory and equipment and will be able to interact with the environment in certain ways.
-=======
-contributors: championmathias omarabed arenascf
-
->>>>>>> 4fbaced28f5c5120636a5fd4fb41fb459b717e45
