@@ -18,9 +18,13 @@ private:
 	double exp;		// Experience
 
 	string name;
-	string attack;
+    string m_attack;
 	string sAttack;
 public:
+
+int getLvl();
+
+string getName();
 
 Enemy(int elvl);
 
@@ -31,4 +35,4 @@ void attack();			//
 void specAtt();			// Special Attack
 
 void restore();			// restores health
-}
+};

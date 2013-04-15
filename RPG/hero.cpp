@@ -147,6 +147,52 @@ void Hero::levelUp()
 }
 //-------------------------------------------------------------------------------------------------
 
+
+//-------------------------------------------------------------------------------------------------
+bool Hero::run(int enemyLvl)
+{
+    int rand = rangeRand(1,100);
+
+    int topOfRange = 50 + (10 * (enemyLvl - m_lvl));
+
+    cout << "rand: " << rand << endl
+            << "topOfRange: " << topOfRange << endl;
+
+    if(rand <= topOfRange)
+    {
+        cout << "Failed to run away!" << endl;
+        return false;
+    }
+    else
+    {
+        cout << "Successfully ran away!" << endl;
+        return true;
+    }
+}
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------
+void Hero::attack(Enemy *enemy)
+{
+    int rand = rangeRand(1,100);
+
+}
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------
+void Hero::magicAttack(Enemy *enemy)
+{
+
+}
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------
+void Hero::useItem(Enemy *enemy)
+{
+    //display all usable items and use the one selected.
+}
+//-------------------------------------------------------------------------------------------------
+
 //#################################################################################################
 
 
@@ -164,6 +210,7 @@ Hero::Hero()
     m_baseMagicDam = 1.2;
     m_baseHealth = 10;
     m_baseMana = 2;
+    m_lvl = 1;
 
     //set name
     cout << "What is your name hero?" << endl;
@@ -239,21 +286,69 @@ Hero::~Hero()
 //-------------------------------------------------------------------------------------------------
 bool Hero::fight(Enemy* enemy)
 {
+    int select;
+    string input;
+
     cout << "Encounter!!!" << endl
          << "A " << enemy->getName() << " has appeared!" << endl;
 
     bool enemyDead = false;
     bool characterDead = false;
+    bool ranAway = false;
 
-    while(!enemyDead && !characterDead)
+    while(!enemyDead && !characterDead && !ranAway)
     {
+        cout << "\t(0) Run" << endl
+             << "\t(1) Attack" << endl
+             << "\t(2) Magic Attack" << endl
+             << "\t(3) Use Item" << endl;
 
+        //get input
+        while(true)
+        {
+            getline(cin, input);
+            stringstream ss1(input);
+
+            if(!(ss1 >> select) || (select >= 4) || (select <= -1))
+            {
+                cout << "Invalid choice, please select 0, 1, 2, or 3." << endl;
+            }
+            else
+            {
+                break;
+            }
+        }
+
+
+        switch(select)
+        {
+        case 0: //Run
+            ranAway = run(enemy->getLvl());
+            break;
+        case 1: // Attack
+            attack(enemy);
+            break;
+        case 2: //Magic Attack
+            magicAttack(enemy);
+            break;
+        case 3: //Use Item
+            useItem(enemy);
+            break;
+        }
     }
+
 
     if(characterDead)
     {
-
+        cout << "GAME OVER!" << endl;
+        return false;
     }
+    else
+        if(enemyDead)
+        {
+            cout << "Danana na na nanana!" << endl;
+            return true;
+        }
 
     return true;
 }

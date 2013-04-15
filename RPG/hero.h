@@ -5,6 +5,7 @@
 #include <enemy.h>
 #include <iostream>
 #include <sstream>
+#include <Random_Number_Generator.h>
 
 using namespace std;
 
@@ -55,6 +56,18 @@ private:
 
     //level up
     void levelUp();
+
+    //run from a fight
+    bool run(int enemyLvl);
+
+    //attack enemy
+    void attack(Enemy *enemy);
+
+    //Magic attack enemy
+    void magicAttack(Enemy *enemy);
+
+    //used to select and use an item from the inventory.
+    void useItem(Enemy *enemy);
 
 public:
     //constructor
