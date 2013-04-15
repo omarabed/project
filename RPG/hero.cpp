@@ -239,6 +239,22 @@ Hero::~Hero()
 //-------------------------------------------------------------------------------------------------
 bool Hero::fight(Enemy* enemy)
 {
+    cout << "Encounter!!!" << endl
+         << "A " << enemy->getName() << " has appeared!" << endl;
+
+    bool enemyDead = false;
+    bool characterDead = false;
+
+    while(!enemyDead && !characterDead)
+    {
+
+    }
+
+    if(characterDead)
+    {
+
+    }
+
     return true;
 }
 //-------------------------------------------------------------------------------------------------
