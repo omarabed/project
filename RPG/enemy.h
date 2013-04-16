@@ -43,5 +43,4 @@ class Enemy
 		string getName();
 
 		void restore();			// restores health
->>>>>>> arenascf
 };
