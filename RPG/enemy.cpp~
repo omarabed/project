@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+#include "enemy.h"
+
+
+int Enemy::getLvl()
+{
+    return level;
+=======
 #include <iostream>
 #include <string>
 #include <stdio>
@@ -182,6 +190,16 @@ string Enemy::getSAttack()
 
 string Enemy::getName()
 {
+<<<<<<< HEAD
+    return name;
+}
+
+
+Enemy::Enemy(int elvl)
+{
+    level = elvl;
+    name = "Evil Being of Evil";
+=======
 	return name;
 }
 
@@ -218,4 +236,5 @@ double Enemy::getExp()
 void Enemy::restore()
 {
 	health = maxHealth;
+>>>>>>> arenascf
 }

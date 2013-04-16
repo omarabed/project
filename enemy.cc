@@ -177,7 +177,6 @@ string Enemy::getAttack()
 string Enemy::getSAttack()
 {
 	return sAttack;
->>>>>>> arenascf
 }
 
 string Enemy::getName()

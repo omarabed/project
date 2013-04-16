@@ -5,34 +5,43 @@ using namespace std;
 
 class Enemy
 {
-private:
-	int level;
+	private:
+		int lvl;
 
-	double health;
-	double maxHealth;
+		double health;
+		double maxHealth;
 
-	double agil;		// agility
-	double dam;		// Damage
-	double sDam;		// Special Damage
-	double armor;		// Armor
-	double exp;		// Experience
+		double agil;		// agility
+		double dam;		// Damage
+		double sDam;		// Special Damage
+		double armor;		// Armor
+		double exp;		// Experience
 
-	string name;
-    string m_attack;
-	string sAttack;
-public:
+		string name;
+		string attack;
+		string sAttack;
 
-int getLvl();
+	public:
 
-string getName();
+		Enemy( int elvl );
 
-Enemy(int elvl);
+		int setPreNameNum( int elvl );
+		void setTypeSpec( int typ );
+		void setSpcSpec( int spc );
+		void setAttack( int typ );
+		void setName( int spc, int pre_num, int typ );
+	
+		double getHealth();
+		double getAgil();
+		double getDam();
+		double getSDam();
+		double getArmor();
+		double getExp();
+	
+		string getAttack();
+		string getSAttack();
+		string getName();
 
-void setAttack();
-string getAttack();
-
-void attack();			// 
-void specAtt();			// Special Attack
-
-void restore();			// restores health
+		void restore();			// restores health
+>>>>>>> arenascf
 };
