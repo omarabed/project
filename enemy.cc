@@ -16,7 +16,7 @@ Enemy::Enemy(int elvl)
 
 	srand( time(null) );
 	lvl = elvl;
-	health = 5 + ( level * 5 );
+	health = 5 + ( lvl * 5 );
 	maxHealth = health;
 
 	dam = elvl * 1.1;
