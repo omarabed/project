@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
-#include <stdio>
-#include <stdlib>
-#include <time>
+
 
 #include "enemy.h"
 #include "Random_Number_Generator.h"
@@ -14,25 +12,24 @@ Enemy::Enemy(int elvl)
 	int spc = rangeRand(0,20);
 	int typ = rangeRand(0,21);
 
-	srand( time(null) );
 	lvl = elvl;
 	health = 5 + ( lvl * 5 );
 	maxHealth = health;
 
-	dam = elvl * 1.1;
+    dam = elvl * 1.5;
 	armor = elvl * 0.35;
 	exp = elvl;
 	agil = elvl * 0.5;
 
 	pre_num = setPreNameNum(elvl);
-	setTypeSpec( typ );
-	setSpcSpec( spc );
-	setAttack( typ );
+    setTypeSpec(typ);
+    setSpcSpec(spc);
+    setAttack(typ);
 	
 	setName( spc, pre_num, typ );
 }
 
-void Enemy::setName( int spc, int pre_num, int typ );
+void Enemy::setName( int spc, int pre_num, int typ )
 {
 	string pre[] = {"small ", "lesser ", "baby ", "", "Adult ", "Large ", "Ancient ", "Massive ", "Greater "};
 
@@ -155,15 +152,15 @@ void Enemy::setSpcSpec( int spc )
 
 void Enemy::setAttack( int typ )
 {
-	string attackName[] = {"Charge ", "Charge ", "Charge ", "Charge ", "Claw Strike ", "Claw Strike ", "Claw Strike ",
-            "Backstab ", "Backstab ", "Backstab ", "Backstab ", "Backstab ",
-            "Headbutt ", "Headbutt ", "Headbutt ", "Headbutt ", "Smash ", "Smash ", "Smash ",
+    string attackName[] = {"Charge", "Charge", "Charge", "Charge", "Claw Strike", "Claw Strike", "Claw Strike",
+            "Backstab", "Backstab", "Backstab", "Backstab", "Backstab",
+            "Headbutt", "Headbutt", "Headbutt", "Headbutt", "Smash", "Smash", "Smash",
             "Bite", "Bite", "NeckBite"};
 
-        string sAttackName[] = {"Gore ", "Gore ", "Gore ", "Gore ", "Maul ", "Maul ", "Maul ",
-            "Fireball ", "Fireball ", "Fireball ", "Fireball ", "Fireball ",
-            "Bison Warp ", "Bison Warp ", "Bison Warp ", "Bison Warp ", "Voodoo ", "Voodoo ", "Voodoo ",
-            "Firebreath ", "Firebreath ", "DEATH BEAM!!! "};
+        string sAttackName[] = {"Gore", "Gore", "Gore", "Gore", "Maul", "Maul", "Maul",
+            "Fireball", "Fireball", "Fireball", "Fireball", "Fireball",
+            "Bison Warp", "Bison Warp", "Bison Warp", "Bison Warp", "Voodoo", "Voodoo", "Voodoo",
+            "Firebreath", "Firebreath", "DEATH BEAM!!!"};
 
 	attack = attackName[typ];
 	sAttack = sAttackName[typ];
@@ -177,7 +174,6 @@ string Enemy::getAttack()
 string Enemy::getSAttack()
 {
 	return sAttack;
->>>>>>> arenascf
 }
 
 string Enemy::getName()
@@ -219,3 +215,79 @@ void Enemy::restore()
 {
 	health = maxHealth;
 }
+
+int Enemy::getLvl()
+{
+    return lvl;
+}
+
+double Enemy::attackHero()
+{
+    int rand = rangeRand(1,100);
+
+    if((rand <= 10) && (health <= (health*0.1)))
+    {
+        cout << name << " has run away!" << endl << endl;
+        return -1;
+    }
+    else
+        if((rand > 85) && (health <= (health*0.1)))
+        {
+            double hpIncrease = maxHealth / 2;
+            cout << name << " heals for " << hpIncrease << "!" << endl;
+
+            health += hpIncrease;
+
+            cout << name << " now has " << health << " health." << endl << endl;
+
+            return 0;
+        }
+    else
+        if(rand <= 70)
+        {
+            cout << name << " attacks with " << attack << "!" << endl;
+            return dam;
+        }
+        else
+        {
+            cout << name << " attacks with " << sAttack << "!" << endl;
+            return sDam;
+        }
+}
+
+void Enemy::attacked(double damageTaken)
+{
+    int rand = rangeRand(1,100);
+    double dmgTaken;
+
+    if(rand < (lvl + agil))
+    {
+        cout << name << " Dodged!" << endl;
+    }
+    else
+    {
+        if(damageTaken <= armor)
+        {
+            cout << name << " is hit! It is not very effective" << endl;
+            cout << name << " still has " << health << " health." << endl << endl;
+        }
+        else
+        {
+            dmgTaken = damageTaken - armor;
+            health -= dmgTaken;
+
+            if(health <= 0)
+            {
+                health = 0;
+            }
+
+            cout << name << " is hit and takes " << dmgTaken << " damage!" << endl;
+            cout << name << " now has " << health << " health." << endl << endl;
+        }
+    }
+}
+
+
+
+
+

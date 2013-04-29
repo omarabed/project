@@ -1,8 +1,10 @@
 #include "hero.h"
 
 
+
 int main(int argc, char *argv[])
 {
+    ///*
     Hero myHero;
 
     Enemy enemy1(3);
@@ -16,6 +18,7 @@ int main(int argc, char *argv[])
     myHero.fight(&enemy4);
     Enemy enemy5(4);
     myHero.fight(&enemy5);
+    //*/
 
     return 0;
 }
