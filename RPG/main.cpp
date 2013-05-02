@@ -2,40 +2,43 @@
 #include <fstream>
 
 
-
-
 int main(int argc, char *argv[])
 {
-    // while(line doesn't start with a ':') then output the line
-    //Reads out the whole story... not done yet obviously
     string line;
     ifstream myfile ("story.txt");
-    if (myfile.is_open())
+    myfile.is_open();
+
+    //myfile.seekg(1, myfile.beg);
+
+    getline(myfile, line);
+    for(int i=0; i<6; i++)
     {
-        while (myfile.good())
-        {
-            getline(myfile, line);
-            cout << line << endl;
-        }
-        myfile.close();
+        getline(myfile, line);
+        cout << line << endl;
     }
-    /*
-    My plan is to have sections of the story split up by headings.
-    So the intro would be denoted by:
-    :Intro:
-    Once upon a time, ...
-    :FirstEnemy:
-    Oh! You've encountered a .......
-    etc etc
-    */
 
-
-    ///*
     Hero myHero;
 
-    Enemy enemy1(3);
+    getline(myfile, line);
+    for(int i=0; i<5; i++)
+    {
+        getline(myfile, line);
+        cout << line << endl;
+    }
+
+    Enemy enemy1(1);
     myHero.fight(&enemy1);
 
+    getline(myfile, line);
+    for(int i=0; i<3; i++)
+    {
+        getline(myfile, line);
+        cout << line << endl;
+    }
+
+
+
+    /*
     Enemy enemy2(3);
     myHero.fight(&enemy2);
     Enemy enemy3(2);
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
     myHero.fight(&enemy4);
     Enemy enemy5(4);
     myHero.fight(&enemy5);
-    //*/
+    */
 
     return 0;
 }
