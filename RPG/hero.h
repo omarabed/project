@@ -5,6 +5,8 @@
 #include <enemy.h>
 #include <iostream>
 #include <sstream>
+#include <Random_Number_Generator.h>
+#include "item.h"
 
 using namespace std;
 
@@ -38,6 +40,11 @@ private:
     double m_baseMagicDam;
     double m_baseHealth;
     double m_baseMana;
+    double m_baseArmor;
+    double m_baseDodge;
+
+    double m_maxHealth;
+    double m_maxMana;
 
     //hero's attributes based on stat * stat Multiplier
     double m_dam;
@@ -47,6 +54,12 @@ private:
     double m_armor;
     double m_dodge;
 
+    string m_attackName;
+    string m_magicAttackName;
+
+    Item m_inventory[10];
+    Item m_equipped[5];
+
     //calculates all the hero's attribues
     void calculateAttributes();
 
@@ -55,6 +68,45 @@ private:
 
     //level up
     void levelUp();
+
+    //run from a fight
+    bool run(int enemyLvl);
+
+    //attack enemy
+    bool attack(Enemy *enemy);
+
+    //Magic attack enemy
+    bool magicAttack(Enemy *enemy);
+
+    //used to select and use an item from the inventory.
+    void useItem();
+
+    //handles dropping of loot
+    void pickUpLoot(int lvl);
+
+    //displays inventory
+    void displayInventory();
+
+    //displays equipped items
+    void displayEquipped();
+
+    //adds an item to the inventory
+    void addItem(Item item);
+
+    //returns true if the inventory is full
+    bool InventoryFull();
+
+    //drop an item from the inventory
+    void dropItem();
+
+    //equip an item
+    void equipItem(Item item);
+
+    //when an Item is equipped, add attributes
+    void addItemAttributes(Item item);
+
+    //when item is unequipped, remove attributes
+    void removeItemAttributes(Item item);
 
 public:
     //constructor
