@@ -568,7 +568,7 @@ Hero::Hero()
     }
 
     //set name
-    cout << "What is your name hero?" << endl;
+    cout << "Enter Name: ";
     getline(cin, m_name);
     cout << "You shall hence forth be known as " << m_name << endl << endl;
 
@@ -633,7 +633,7 @@ Hero::Hero()
         break;
     }
     assignStats(10);
-    cout << "You are now prepared to enter the Tower " << m_name << "." << endl  << endl;
+    //cout << "You are now prepared to enter the Tower " << m_name << "." << endl  << endl;
 }
 //-------------------------------------------------------------------------------------------------
 

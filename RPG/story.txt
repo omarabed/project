@@ -1,4 +1,5 @@
 :Intro:
+
 Urghh... Ow, my head. What happened?
 It's so dark in here.
 HELLO!... Hello... hellooo...
@@ -16,3 +17,26 @@ What the heck was that?!
 Okay, new goal. Just try not to get killed.
 And in the meantime, look for some stairs. Maybe on a higher level I can find a window or something and get some help.
 :Explore:
+Yes! Stairs!
+One step closer!
+:Explore:
+Yes! Stairs!
+One step closer!
+:Explore:
+Yes! Stairs!
+One step closer!
+:Explore:
+Yes! Stairs!
+One step closer!
+:Explore:
+Yes! Stairs!
+One step closer!
+:FinalLevel:
+Yes! I see a light... a window!
+But there's something in the way.
+That's a big monster...
+:Won:
+I'm at the window! And I see people at the ground!
+Help! Someone help! I'm trapped up here!
+
+You've won!
