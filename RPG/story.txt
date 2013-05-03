@@ -28,13 +28,11 @@ One step closer!
 :Explore:
 Yes! Stairs!
 One step closer!
-:Explore:
-Yes! Stairs!
-One step closer!
 :FinalLevel:
 Yes! I see a light... a window!
 But there's something in the way.
 That's a big monster...
+
 :Won:
 I'm at the window! And I see people at the ground!
 Help! Someone help! I'm trapped up here!

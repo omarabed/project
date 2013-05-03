@@ -124,6 +124,8 @@ public:
     //load hero/level
     void load();
 
+    //show hero health level
+    int getHealth();
 };
 
 
