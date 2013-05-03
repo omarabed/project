@@ -1,4 +1,5 @@
 #include "hero.h"
+//#include <hero.h>
 #include <fstream>
 
 
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
 
     Hero myHero;
 
+    //Read First Monster
     getline(myfile, line);
     for(int i=0; i<5; i++)
     {
@@ -32,6 +34,7 @@ int main(int argc, char *argv[])
     Enemy enemy1(1);
     myHero.fight(&enemy1);
 
+    //Read Go Find Stairs
     getline(myfile, line);
     for(int i=0; i<3; i++)
     {
@@ -40,6 +43,8 @@ int main(int argc, char *argv[])
     }
 
     int rand;
+    string input = "";
+    int thing = 0;
 
     while(floor < 5)
     {
@@ -48,14 +53,20 @@ int main(int argc, char *argv[])
         cout << "Left(3)"    << endl;
 
         getline(cin, input);
-        stringstream ss1(input);
+        stringstream goIn(input);
 
-        while(ss1 > 3 && ss1 < 1)
+        //This line has a problem.
+        /////////////////////////////////////////////////
+        while((goIn >> 3) || (goIn << 1))
+        /////////////////////////////////////////////////
         {
             cout << "Choose either 1, 2, or 3" << endl;
+            getline(cin, input);
+            stringstream goIn(input);
         }
-
+/*
         rand = rangeRand(1,100);
+
         if(rand < 7)
         {
             getline(myfile, line);
@@ -66,14 +77,12 @@ int main(int argc, char *argv[])
             }
             floor++;
         }
-        else
+        else if(rand < 20)
         {
-            if(rand < 20)
-            {
-                //Enemy randEnemy(floor);
-                //myHero.fight(&randEnemy);
-            }
+            //Enemy randEnemy(floor);
+            //myHero.fight(&randEnemy);
         }
+*/
     }
 
     getline(myfile, line);
