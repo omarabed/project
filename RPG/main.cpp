@@ -34,41 +34,50 @@ int main(int argc, char *argv[])
     Enemy enemy1(1);
     myHero.fight(&enemy1);
 
-    //Read Go Find Stairs
-    getline(myfile, line);
-    for(int i=0; i<3; i++)
+
+    if(myHero.getHealth() > 0)
     {
+
+        //Read Go Find Stairs
         getline(myfile, line);
-        cout << line << endl;
+        for(int i=0; i<3; i++)
+        {
+            getline(myfile, line);
+            cout << line << endl;
+        }
     }
 
     int rand;
     string input = "";
-    int thing = 0;
+    int inputInt = 0;
 
-    while(floor < 5)
+    while(floor < 5 && (myHero.getHealth() > 0))
     {
         cout << "Forward(1)" << endl;
         cout << "Right(2)"   << endl;
         cout << "Left(3)"    << endl;
 
-        getline(cin, input);
-        stringstream goIn(input);
-
-        //This line has a problem.
-        /////////////////////////////////////////////////
-        while((goIn >> 3) || (goIn << 1))
-        /////////////////////////////////////////////////
+        while(true)
         {
-            cout << "Choose either 1, 2, or 3" << endl;
             getline(cin, input);
             stringstream goIn(input);
+
+            if(!(goIn >> inputInt) || (inputInt < 1) || (inputInt > 3))
+            {
+                cout << "Choose either 1, 2, or 3" << endl;
+            }
+            else
+            {
+                break;
+            }
         }
-/*
+
         rand = rangeRand(1,100);
 
-        if(rand < 7)
+        //There's a 6% chance you find stairs if you move
+        if((rand < 6) && (myHero.getHealth() > 0))
         {
+            //Read Find Stairs
             getline(myfile, line);
             for(int i=0; i<2; i++)
             {
@@ -77,16 +86,22 @@ int main(int argc, char *argv[])
             }
             floor++;
         }
-        else if(rand < 20)
+        //If not stairs, theres an 18% chance you get a battle
+        else if((rand > 82) && (myHero.getHealth() > 0))
         {
-            //Enemy randEnemy(floor);
-            //myHero.fight(&randEnemy);
+            Enemy randEnemy(floor);
+            myHero.fight(&randEnemy);
         }
-*/
     }
 
+    if(myHero.getHealth() <= 0)
+    {
+        return 0;
+    }
+
+    //Read Boss
     getline(myfile, line);
-    for(int i=0; i<3; i++)
+    for(int i=0; i<4; i++)
     {
         getline(myfile, line);
         cout << line << endl;
@@ -95,24 +110,13 @@ int main(int argc, char *argv[])
     Enemy boss(5);
     myHero.fight(&boss);
 
+    //Read Win!
     getline(myfile, line);
     for(int i=0; i<4; i++)
     {
         getline(myfile, line);
         cout << line << endl;
     }
-
-
-    /*
-    Enemy enemy2(3);
-    myHero.fight(&enemy2);
-    Enemy enemy3(2);
-    myHero.fight(&enemy3);
-    Enemy enemy4(1);
-    myHero.fight(&enemy4);
-    Enemy enemy5(4);
-    myHero.fight(&enemy5);
-    */
 
     return 0;
 }
