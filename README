@@ -1,0 +1,14 @@
+Our project makes use of Qt libraries.
+In order to install Qt, run:
+	sudo apt-get install qt
+
+Once you have Qt, compile the project by running:
+	qmake
+and then:
+	make
+
+This creates the Makefile for you.
+Once the project is compiled, you start it by doing:
+	./RPG
+
+From there, follow the instructions to play the Tower RPG game!
