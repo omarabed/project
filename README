@@ -2,7 +2,10 @@ Our project makes use of Qt libraries.
 In order to install Qt, run:
 	sudo apt-get install qt
 
-Once you have Qt, compile the project by running:
+Once you have Qt installed, go into the RPG subfolder with:
+	cd RPG
+
+Compile the project by running:
 	qmake
 and then:
 	make
